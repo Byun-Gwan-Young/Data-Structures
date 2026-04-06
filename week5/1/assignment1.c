@@ -14,35 +14,35 @@ int main(void) {
         return 1;
     }
 
-    // 0~N 사이의 임의의 수로 배열 채우기 (포인터 기법 사용)
+    // 0~N 사이의 임의의 수로 배열 채우기
     srand((unsigned int)time(NULL));
     for (int i = 0; i < N; i++) {
         *(arr + i) = rand() % (N + 1);  // 0 이상 N 이하
     }
 
-    // 처음부터 끝까지 출력
+    // 처음부터 끝까지 출력 (포인터 순회)
     printf("\n[처음 → 끝]\n");
-    for (int i = 0; i < N; i++) {
-        printf("%d ", *(arr + i));
+    for (int *p = arr; p < arr + N; p++) {
+        printf("%d ", *p);
     }
     printf("\n");
 
-    // 뒤에서부터 처음까지 출력
+    // 뒤에서부터 처음까지 출력 (포인터 역순 순회)
     printf("\n[끝 → 처음]\n");
-    for (int i = N - 1; i >= 0; i--) {
-        printf("%d ", *(arr + i));
+    for (int *p = arr + N - 1; p >= arr; p--) {
+        printf("%d ", *p);
     }
     printf("\n");
 
-    // 총합, 최대값, 최소값 계산
+    // 총합, 최대값, 최소값 계산 (포인터 순회)
     int sum = 0;
-    int max = *(arr + 0);
-    int min = *(arr + 0);
+    int max = *arr;
+    int min = *arr;
 
-    for (int i = 0; i < N; i++) {
-        sum += *(arr + i);
-        if (*(arr + i) > max) max = *(arr + i);
-        if (*(arr + i) < min) min = *(arr + i);
+    for (int *p = arr; p < arr + N; p++) {
+        sum += *p;
+        if (*p > max) max = *p;
+        if (*p < min) min = *p;
     }
 
     printf("\n[통계]\n");
