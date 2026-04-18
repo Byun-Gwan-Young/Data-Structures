@@ -1,5 +1,5 @@
 
-# SparseMatrix - 오류 수정 보고서
+# SparseMatrix - 오류 수정 내용
 
 ## 개요
 
