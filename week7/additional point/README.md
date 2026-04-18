@@ -23,7 +23,7 @@ SparseMatrix/
 
 ## 발견된 오류 및 수정 내용
 
-### ❗ [오류 1] `sparseMatrix.c` — `addSparseMatrix` 루프 범위 오류 (핵심 크래시 원인)
+### ❗ [오류 1] `sparseMatrix.c` — `addSparseMatrix` 루프 범위 오류 (핵심 원인)
 
 **증상:** 수업 시간에 `add 완료` 출력 전 프로그램이 비정상 종료됨 (Segmentation Fault)
 
