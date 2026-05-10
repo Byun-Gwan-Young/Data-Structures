@@ -75,7 +75,7 @@ LinkedList* deleteAtLinkedList(LinkedList* li, int at) {
    if (at >= 0 && at < li->size) {
       PointType* nPtr = li->head;
 
-      for (int i = 0; i < at; i++) {
+      for (int i = 0; i < at-1; i++) {
          nPtr = nPtr->next;
       }
 
