@@ -20,7 +20,7 @@ for (int i = 0; i < at - 1; i++) {
 
 **이유:**  
 `else` 블록에서 노드를 삭제하려면 `nPtr`이 삭제할 노드의 **이전 노드**를 가리켜야 한다.  
-기존 코드는 루프가 `at`번 돌아 `nPtr`이 삭제할 노드 자체로 이동했기 때문에, `nPtr->next`가 잘못된 노드를 가리켜 Segmentation Fault가 발생했다.  
+기존 코드는 루프가 `at`번 돌아 `nPtr`이 삭제할 노드 자체로 이동했기 때문에, `nPtr->next`가 잘못된 노드를 가리켜 오류(Segmentation Fault)가 발생했다.  
 `at - 1`번 루프로 수정하여 `nPtr`이 삭제 대상의 이전 노드에서 멈추도록 했다.
 
 ---
@@ -51,4 +51,4 @@ return li;
 ```
 
 **이유:**  
-함수 반환형이 `LinkedList*`인데 `return`이 없으면 undefined behavior가 발생한다.
+함수 반환형이 `LinkedList*`인데 `return`이 없으면 오류(undefined behavior)가 발생한다.
