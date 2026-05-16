@@ -186,6 +186,69 @@ int deleteAtLinkedList(LinkedList* li, int at) {
 	return 0;
 }
 
+int deleteItemLinkedList(LinkedList* li, int item) {
+	NodeType* pre = NULL;
+	NodeType* ptr = li->head;
+
+	while (ptr != NULL && ptr->data != item) {
+		pre = ptr;
+		ptr = ptr->next;
+	}
+
+	if (ptr == NULL) {
+		return 0;
+	}
+
+	if (pre == NULL) {
+		li->head = ptr->next;
+	}
+	else {
+		pre->next = ptr->next;
+	}
+
+	int data = ptr->data;
+	free(ptr);
+	li->size--;
+
+	return data;
+}
+
+int getItemLinkedList(LinkedList* li, int pos) {
+	if (pos < 0 || pos >= li->size) {
+		return 0;
+	}
+
+	NodeType* ptr = li->head;
+	for (int i = 0; i < pos; i++) {
+		ptr = ptr->next;
+	}
+
+	return ptr->data;
+}
+
+int replaceItemLinkedList(LinkedList* li, int pos, int item) {
+	if (pos < 0 || pos >= li->size) {
+		return 0;
+	}
+
+	NodeType* ptr = li->head;
+	for (int i = 0; i < pos; i++) {
+		ptr = ptr->next;
+	}
+
+	ptr->data = item;
+
+	return 1;
+}
+
+int nextItemLinkedList(LinkedList* li, NodeType* pre) {
+	if (pre == NULL || pre->next == NULL) {
+		return 0;
+	}
+
+	return pre->next->data;
+}
+
 int printLinkedList(LinkedList* li) {
 	NodeType* current = li->head;
 	printf("LinkedList:\n");
